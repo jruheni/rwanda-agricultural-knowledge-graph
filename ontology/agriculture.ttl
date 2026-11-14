@@ -1,0 +1,248 @@
+
+@prefix agri: <http://example.org/agriculture#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ==========================================
+# ONTOLOGY DEFINITION
+# ==========================================
+
+agri:AgriculturalOntology a owl:Ontology ;
+    rdfs:label "Rwanda Agricultural Knowledge Ontology" ;
+    rdfs:comment "An ontology for representing agricultural knowledge, including crops, pests, diseases, pathogens, management practices, and supporting evidence." .
+
+
+# ==========================================
+# 1. CLASSES
+# ==========================================
+
+# ------------------------------------------
+# Agricultural entities
+# ------------------------------------------
+
+agri:Crop a owl:Class ;
+    rdfs:label "Crop" ;
+    rdfs:comment "An agricultural plant cultivated for food or other uses." .
+
+agri:BiologicalThreat a owl:Class ;
+    rdfs:label "Biological Threat" ;
+    rdfs:comment "A biological organism or disease that can negatively affect an agricultural crop." .
+
+agri:Pest a owl:Class ;
+    rdfs:subClassOf agri:BiologicalThreat ;
+    rdfs:label "Pest" ;
+    rdfs:comment "An organism that damages agricultural crops." .
+
+agri:Disease a owl:Class ;
+    rdfs:subClassOf agri:BiologicalThreat ;
+    rdfs:label "Plant Disease" ;
+    rdfs:comment "A disease that affects agricultural crops, including diseases caused by viruses, bacteria, fungi, and other pathogens." .
+
+agri:Pathogen a owl:Class ;
+    rdfs:label "Pathogen" ;
+    rdfs:comment "A biological agent capable of causing disease, including viruses, bacteria, fungi, and other disease-causing organisms." .
+
+agri:Vector a owl:Class ;
+    rdfs:subClassOf agri:Pest ;
+    rdfs:label "Disease Vector" ;
+    rdfs:comment "An organism that transmits a pathogen or disease between plants or hosts." .
+
+
+# ------------------------------------------
+# Agricultural characteristics
+# ------------------------------------------
+
+agri:Symptom a owl:Class ;
+    rdfs:label "Symptom or visible sign" .
+
+agri:ManagementPractice a owl:Class ;
+    rdfs:label "Management Practice" .
+
+agri:SoilCondition a owl:Class ;
+    rdfs:label "Soil Condition" .
+
+agri:ClimateCondition a owl:Class ;
+    rdfs:label "Climate Condition" .
+
+agri:Region a owl:Class ;
+    rdfs:label "Region" .
+
+
+# ------------------------------------------
+# Provenance and evidence
+# ------------------------------------------
+
+agri:Source a owl:Class ;
+    rdfs:label "Information Source" ;
+    rdfs:comment "A publication, report, handbook, or other source of agricultural information." .
+
+agri:Claim a owl:Class ;
+    rdfs:label "Evidence-backed Claim" ;
+    rdfs:comment "A representation of a specific subject-predicate-object relationship and the sources supporting it." .
+
+
+# ==========================================
+# 2. AGRICULTURAL OBJECT PROPERTIES
+# ==========================================
+
+# ------------------------------------------
+# Crop relationships
+# ------------------------------------------
+
+agri:affectedBy a owl:ObjectProperty ;
+    rdfs:domain agri:Crop ;
+    rdfs:range agri:Pest ;
+    rdfs:label "affected by pest" ;
+    rdfs:comment "Connects a crop to a pest that damages it." .
+
+agri:hasDisease a owl:ObjectProperty ;
+    rdfs:domain agri:Crop ;
+    rdfs:range agri:Disease ;
+    rdfs:label "has disease" ;
+    rdfs:comment "Connects a crop to a disease that affects it." .
+
+agri:requiresSoilCondition a owl:ObjectProperty ;
+    rdfs:domain agri:Crop ;
+    rdfs:range agri:SoilCondition ;
+    rdfs:label "requires soil condition" .
+
+agri:suitableUnder a owl:ObjectProperty ;
+    rdfs:domain agri:Crop ;
+    rdfs:range agri:ClimateCondition ;
+    rdfs:label "suitable under" .
+
+
+# ------------------------------------------
+# Biological threat relationships
+# ------------------------------------------
+
+agri:causesSymptom a owl:ObjectProperty ;
+    rdfs:domain agri:BiologicalThreat ;
+    rdfs:range agri:Symptom ;
+    rdfs:label "causes symptom" ;
+    rdfs:comment "Connects a pest or disease to a symptom or visible sign associated with it." .
+
+agri:managedBy a owl:ObjectProperty ;
+    rdfs:domain agri:BiologicalThreat ;
+    rdfs:range agri:ManagementPractice ;
+    rdfs:label "managed by" ;
+    rdfs:comment "Connects a pest or disease to a management practice used to control or manage it." .
+
+agri:observedIn a owl:ObjectProperty ;
+    rdfs:domain agri:BiologicalThreat ;
+    rdfs:range agri:Region ;
+    rdfs:label "observed in" ;
+    rdfs:comment "Connects a pest or disease to a geographical region where it has been observed." .
+
+
+# ------------------------------------------
+# Disease-specific relationships
+# ------------------------------------------
+
+agri:causedBy a owl:ObjectProperty ;
+    rdfs:domain agri:Disease ;
+    rdfs:range agri:Pathogen ;
+    rdfs:label "caused by" ;
+    rdfs:comment "Connects a plant disease to the pathogen responsible for causing it." .
+
+agri:transmittedBy a owl:ObjectProperty ;
+    rdfs:domain agri:Disease ;
+    rdfs:range agri:Vector ;
+    rdfs:label "transmitted by" ;
+    rdfs:comment "Connects a plant disease to an organism that transmits its pathogen." .
+
+
+# ==========================================
+# 3. PROVENANCE OBJECT PROPERTIES
+# ==========================================
+
+agri:supportedBy a owl:ObjectProperty ;
+    rdfs:domain agri:Claim ;
+    rdfs:range agri:Source ;
+    rdfs:label "supported by" ;
+    rdfs:comment "Connects an evidence-backed claim to a source that supports it." .
+
+agri:hasClaim a owl:ObjectProperty ;
+    rdfs:domain agri:Source ;
+    rdfs:range agri:Claim ;
+    rdfs:label "has supporting claim" .
+
+
+# ==========================================
+# 4. CLAIM DATA PROPERTIES
+# ==========================================
+
+agri:claimDescription a owl:DatatypeProperty ;
+    rdfs:domain agri:Claim ;
+    rdfs:range xsd:string ;
+    rdfs:label "claim description" .
+
+agri:evidenceDescription a owl:DatatypeProperty ;
+    rdfs:domain agri:Claim ;
+    rdfs:range xsd:string ;
+    rdfs:label "evidence description" .
+
+agri:evidenceSection a owl:DatatypeProperty ;
+    rdfs:domain agri:Claim ;
+    rdfs:range xsd:string ;
+    rdfs:label "evidence section" .
+
+
+# ==========================================
+# 5. SOURCE DATA PROPERTIES
+# ==========================================
+
+agri:sourceURL a owl:DatatypeProperty ;
+    rdfs:domain agri:Source ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "source URL" .
+
+agri:sourceTitle a owl:DatatypeProperty ;
+    rdfs:domain agri:Source ;
+    rdfs:range xsd:string ;
+    rdfs:label "source title" .
+
+agri:publisher a owl:DatatypeProperty ;
+    rdfs:domain agri:Source ;
+    rdfs:range xsd:string ;
+    rdfs:label "publisher" .
+
+agri:publicationYear a owl:DatatypeProperty ;
+    rdfs:domain agri:Source ;
+    rdfs:range xsd:gYear ;
+    rdfs:label "publication year" .
+
+agri:geographicScope a owl:DatatypeProperty ;
+    rdfs:domain agri:Source ;
+    rdfs:range xsd:string ;
+    rdfs:label "geographic scope" .
+
+agri:sourceLanguage a owl:DatatypeProperty ;
+    rdfs:domain agri:Source ;
+    rdfs:range xsd:string ;
+    rdfs:label "source language" .
+
+agri:sourceType a owl:DatatypeProperty ;
+    rdfs:domain agri:Source ;
+    rdfs:range xsd:string ;
+    rdfs:label "source type" .
+
+agri:accessDate a owl:DatatypeProperty ;
+    rdfs:domain agri:Source ;
+    rdfs:range xsd:date ;
+    rdfs:label "access date" .
+
+
+# ==========================================
+# 6. GENERAL AGRICULTURAL DATA PROPERTIES
+# ==========================================
+
+agri:description a owl:DatatypeProperty ;
+    rdfs:range xsd:string ;
+    rdfs:label "description" .
+
+agri:scientificName a owl:DatatypeProperty ;
+    rdfs:range xsd:string ;
+    rdfs:label "scientific name" .

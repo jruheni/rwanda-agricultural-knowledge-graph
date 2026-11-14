@@ -1,0 +1,536 @@
+@prefix agri: <http://example.org/agriculture#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+agri:Cassava a agri:Crop ;
+    rdfs:label "Cassava" ;
+    agri:description "A root crop cultivated in Rwanda for food and household income." ;
+    agri:hasDisease agri:CassavaBrownStreakDisease ;
+    agri:scientificName "Manihot esculenta" .
+
+agri:Claim_BeanStemMaggot_IPM_WorldBank a agri:Claim ;
+    agri:claimDescription "Integrated pest management is identified as an approach for controlling Bean Stem Maggot." ;
+    agri:evidenceDescription "The World Bank report states that bean fly can be controlled through integrated pest management. The report discusses this approach alongside resistant varieties and other control measures." ;
+    agri:evidenceSection "Pests and Disease, p. 84" ;
+    agri:supportedBy agri:WorldBank_RwandaAgriculturalRiskAssessment ;
+    rdf:object agri:IntegratedPestManagement ;
+    rdf:predicate agri:managedBy ;
+    rdf:subject agri:BeanStemMaggot .
+
+agri:Claim_BeanStemMaggot_ResistantVarieties_WorldBank a agri:Claim ;
+    agri:claimDescription "Resistant varieties are identified as one component of integrated pest management for Bean Stem Maggot." ;
+    agri:evidenceDescription "The World Bank report identifies resistant varieties as one of the approaches included in integrated pest management for controlling bean fly (Bean Stem Maggot)." ;
+    agri:evidenceSection "Pests and Disease, p. 84" ;
+    agri:supportedBy agri:WorldBank_RwandaAgriculturalRiskAssessment ;
+    rdf:object agri:ResistantVarieties ;
+    rdf:predicate agri:managedBy ;
+    rdf:subject agri:BeanStemMaggot .
+
+agri:Claim_CBSDCausedByCBSV_MINAGRI a agri:Claim ;
+    agri:claimDescription "Cassava Brown Streak Disease in Rwanda is caused in part by Cassava brown streak virus (CBSV)." ;
+    agri:evidenceDescription "MINAGRI's annual report identifies CBSV as one of the ipomoviruses associated with cassava brown streak disease in Rwanda." ;
+    agri:evidenceSection "Cassava Sub Program" ;
+    agri:supportedBy agri:MINAGRI_CassavaAnnualReport_2018_2019 ;
+    rdf:object agri:CassavaBrownStreakVirus ;
+    rdf:predicate agri:causedBy ;
+    rdf:subject agri:CassavaBrownStreakDisease .
+
+agri:Claim_CBSDCausedByCBSV_Research a agri:Claim ;
+    agri:claimDescription "Cassava Brown Streak Disease is associated with Cassava brown streak virus (CBSV)." ;
+    agri:evidenceDescription "The study identifies CBSV among the viruses associated with CBSD in Rwanda, based on molecular analysis of samples collected from affected cassava plants." ;
+    agri:evidenceSection "Abstract and discussion of associated viruses" ;
+    agri:supportedBy agri:Rwanda_CBSD_Research_2018 ;
+    rdf:object agri:CassavaBrownStreakVirus ;
+    rdf:predicate agri:causedBy ;
+    rdf:subject agri:CassavaBrownStreakDisease .
+
+agri:Claim_CBSDCausedByUCBSV_MINAGRI a agri:Claim ;
+    agri:claimDescription "Cassava Brown Streak Disease in Rwanda is caused in part by Ugandan cassava brown streak virus (UCBSV)." ;
+    agri:evidenceDescription "MINAGRI's annual report identifies UCBSV as one of the ipomoviruses associated with cassava brown streak disease in Rwanda." ;
+    agri:evidenceSection "Cassava Sub Program" ;
+    agri:supportedBy agri:MINAGRI_CassavaAnnualReport_2018_2019 ;
+    rdf:object agri:UgandanCassavaBrownStreakVirus ;
+    rdf:predicate agri:causedBy ;
+    rdf:subject agri:CassavaBrownStreakDisease .
+
+agri:Claim_CBSDCausedByUCBSV_Research a agri:Claim ;
+    agri:claimDescription "Cassava Brown Streak Disease is associated with Ugandan cassava brown streak virus (UCBSV)." ;
+    agri:evidenceDescription "The study identifies UCBSV among the viruses associated with CBSD in Rwanda and reports that UCBSV was more widespread than CBSV in the surveyed districts." ;
+    agri:evidenceSection "Abstract and discussion of associated viruses" ;
+    agri:supportedBy agri:Rwanda_CBSD_Research_2018 ;
+    rdf:object agri:UgandanCassavaBrownStreakVirus ;
+    rdf:predicate agri:causedBy ;
+    rdf:subject agri:CassavaBrownStreakDisease .
+
+agri:Claim_CBSDCleanPlantingMaterial_FAO a agri:Claim ;
+    agri:claimDescription "Healthy cassava planting material helps limit the spread of cassava brown streak disease." ;
+    agri:evidenceDescription "The FAO field-school guide explains that CBSD can be spread through infected cassava cuttings and recommends using healthy planting material to limit disease spread." ;
+    agri:evidenceSection "Diseases and pests of cassava: Spread and management of CMD and CBSD" ;
+    agri:supportedBy agri:FAO_CassavaFarmerFieldSchools ;
+    rdf:object agri:CleanPlantingMaterial ;
+    rdf:predicate agri:managedBy ;
+    rdf:subject agri:CassavaBrownStreakDisease .
+
+agri:Claim_CBSDLeafChlorosis_Research a agri:Claim ;
+    agri:claimDescription "Cassava Brown Streak Disease can cause chlorosis and yellow mottling on cassava leaves." ;
+    agri:evidenceDescription "The study records yellow patches, chlorotic spots and blotches, pronounced mottling, and vein and interveinal chlorosis on affected cassava leaves." ;
+    agri:evidenceSection "Symptoms of CBSD-affected cassava plants" ;
+    agri:supportedBy agri:Rwanda_CBSD_Research_2018 ;
+    rdf:object agri:CassavaLeafChlorosis ;
+    rdf:predicate agri:causesSymptom ;
+    rdf:subject agri:CassavaBrownStreakDisease .
+
+agri:Claim_CBSDRemovalOfInfectedPlants_FAO a agri:Claim ;
+    agri:claimDescription "Removing sources of infection is a management approach for reducing the spread of cassava brown streak disease." ;
+    agri:evidenceDescription "The FAO guide identifies elimination of sources of infection as a principal management approach for cassava virus diseases." ;
+    agri:evidenceSection "Diseases and pests of cassava: Spread and management of CMD and CBSD" ;
+    agri:supportedBy agri:FAO_CassavaFarmerFieldSchools ;
+    rdf:object agri:RemovalOfInfectedPlants ;
+    rdf:predicate agri:managedBy ;
+    rdf:subject agri:CassavaBrownStreakDisease .
+
+agri:Claim_CBSDRootConstrictions_Research a agri:Claim ;
+    agri:claimDescription "Cassava Brown Streak Disease can cause constrictions in cassava storage roots." ;
+    agri:evidenceDescription "The study records varying levels of root constrictions in cassava plants affected by CBSD." ;
+    agri:evidenceSection "Symptoms of CBSD-affected cassava plants, root symptoms" ;
+    agri:supportedBy agri:Rwanda_CBSD_Research_2018 ;
+    rdf:object agri:CassavaRootConstrictions ;
+    rdf:predicate agri:causesSymptom ;
+    rdf:subject agri:CassavaBrownStreakDisease .
+
+agri:Claim_CBSDRootDiscolouration_Research a agri:Claim ;
+    agri:claimDescription "Cassava Brown Streak Disease can cause discolouration of cassava storage roots." ;
+    agri:evidenceDescription "The study reports brown, black, yellow, and chalky discoloration in storage roots affected by CBSD." ;
+    agri:evidenceSection "Symptoms of CBSD-affected cassava plants, root symptoms" ;
+    agri:supportedBy agri:Rwanda_CBSD_Research_2018 ;
+    rdf:object agri:CassavaRootDiscolouration ;
+    rdf:predicate agri:causesSymptom ;
+    rdf:subject agri:CassavaBrownStreakDisease .
+
+agri:Claim_CBSDRootNecrosis_Research a agri:Claim ;
+    agri:claimDescription "Cassava Brown Streak Disease can cause necrotic damage in cassava storage roots." ;
+    agri:evidenceDescription "The study reports necrotic symptoms in affected storage roots, including chalky brown necrosis and other forms of root tissue damage." ;
+    agri:evidenceSection "Symptoms of CBSD-affected cassava plants, root symptoms" ;
+    agri:supportedBy agri:Rwanda_CBSD_Research_2018 ;
+    rdf:object agri:CassavaRootNecrosis ;
+    rdf:predicate agri:causesSymptom ;
+    rdf:subject agri:CassavaBrownStreakDisease .
+
+agri:Claim_CBSDSpreadByInfectedCuttings_MINAGRI a agri:Claim ;
+    agri:claimDescription "Using clean cassava planting material helps reduce the spread of cassava brown streak disease through infected cuttings." ;
+    agri:evidenceDescription "MINAGRI reports that cassava brown streak viruses are perpetuated through the use of infected cuttings, supporting the use of healthy planting material to limit disease spread." ;
+    agri:evidenceSection "Cassava Sub Program" ;
+    agri:supportedBy agri:MINAGRI_CassavaAnnualReport_2018_2019 ;
+    rdf:object agri:CleanPlantingMaterial ;
+    rdf:predicate agri:managedBy ;
+    rdf:subject agri:CassavaBrownStreakDisease .
+
+agri:Claim_CBSDStemLesions_Research a agri:Claim ;
+    agri:claimDescription "Cassava Brown Streak Disease can cause lesions and streaks on cassava stems." ;
+    agri:evidenceDescription "The study describes stem symptoms as scratch-like wounds, dark brown spots, and streaks. Severe systemic stem necrosis and dieback were also observed in some affected plants." ;
+    agri:evidenceSection "Symptoms of CBSD-affected cassava plants" ;
+    agri:supportedBy agri:Rwanda_CBSD_Research_2018 ;
+    rdf:object agri:CassavaStemLesions ;
+    rdf:predicate agri:causesSymptom ;
+    rdf:subject agri:CassavaBrownStreakDisease .
+
+agri:Claim_CBSDTolerantVarieties_FAO a agri:Claim ;
+    agri:claimDescription "Growing suitable resistant or tolerant cassava varieties is a management approach for CBSD." ;
+    agri:evidenceDescription "The FAO field-school guide recommends the use of high-yielding resistant varieties as one of the principal approaches to managing cassava mosaic and brown streak diseases." ;
+    agri:evidenceSection "Diseases and pests of cassava: Spread and management of CMD and CBSD" ;
+    agri:supportedBy agri:FAO_CassavaFarmerFieldSchools ;
+    rdf:object agri:TolerantVarieties ;
+    rdf:predicate agri:managedBy ;
+    rdf:subject agri:CassavaBrownStreakDisease .
+
+agri:Claim_CassavaBrownStreakVirus_TransmittedByWhitefly_MINAGRI_CassavaAnnualReport_2018_2019 a agri:Claim ;
+    agri:claimDescription "CassavaBrownStreakVirus is transmitted by whiteflies (Bemisia tabaci)." ;
+    agri:evidenceDescription "MINAGRI's annual report identifies Bemisia tabaci as the whitefly vector transmitting cassava brown streak viruses in Rwanda." ;
+    agri:evidenceSection "Cassava Sub Program" ;
+    agri:supportedBy agri:MINAGRI_CassavaAnnualReport_2018_2019 ;
+    rdf:object agri:Whitefly ;
+    rdf:predicate agri:transmittedBy ;
+    rdf:subject agri:CassavaBrownStreakVirus .
+
+agri:Claim_CassavaBrownStreakVirus_TransmittedByWhitefly_Rwanda_CBSD_Research_2018 a agri:Claim ;
+    agri:claimDescription "CassavaBrownStreakVirus is transmitted by whiteflies (Bemisia tabaci)." ;
+    agri:evidenceDescription "The study identifies Bemisia tabaci as an insect vector responsible for transmitting cassava brown streak viruses." ;
+    agri:evidenceSection "Introduction, discussion of virus transmission" ;
+    agri:supportedBy agri:Rwanda_CBSD_Research_2018 ;
+    rdf:object agri:Whitefly ;
+    rdf:predicate agri:transmittedBy ;
+    rdf:subject agri:CassavaBrownStreakVirus .
+
+agri:Claim_CassavaHasCBSD_Research a agri:Claim ;
+    agri:claimDescription "Cassava in Rwanda is affected by Cassava Brown Streak Disease." ;
+    agri:evidenceDescription "The study reports that CBSD was first observed on cassava in Rwanda in 2009 and investigates its occurrence and symptom distribution across eight major cassava-growing districts." ;
+    agri:evidenceSection "Abstract and Field assessment of CBSD phenotypes" ;
+    agri:supportedBy agri:Rwanda_CBSD_Research_2018 ;
+    rdf:object agri:CassavaBrownStreakDisease ;
+    rdf:predicate agri:hasDisease ;
+    rdf:subject agri:Cassava .
+
+agri:Claim_CommonBeanAffectedByBeanStemMaggot_RwandaJournal a agri:Claim ;
+    agri:claimDescription "Common beans cultivated in Rwanda are affected by Bean Stem Maggot (Ophiomyia spp.)." ;
+    agri:evidenceDescription "The article's abstract identifies bean stem maggots (Ophiomyia spp.) among the main insect pests affecting common bean cultivation in Rwanda. This source corroborates the occurrence of the pest; its experimental pesticide treatment is not treated as a general management recommendation in this knowledge graph." ;
+    agri:evidenceSection "Abstract" ;
+    agri:supportedBy agri:RwandaJournal_BeanPests2024 ;
+    rdf:object agri:BeanStemMaggot ;
+    rdf:predicate agri:affectedBy ;
+    rdf:subject agri:CommonBean .
+
+agri:Claim_CommonBeanAffectedByBeanStemMaggot_WorldBank a agri:Claim ;
+    agri:claimDescription "Common beans in Rwanda are affected by Bean Stem Maggot (Ophiomyia spp.)." ;
+    agri:evidenceDescription "The World Bank report identifies bean fly, also known as bean stem maggot (Ophiomyia spp.), as one of the two main pests of beans in Rwanda. It also describes the pest as widespread throughout the country." ;
+    agri:evidenceSection "Pests and Disease, p. 84" ;
+    agri:supportedBy agri:WorldBank_RwandaAgriculturalRiskAssessment ;
+    rdf:object agri:BeanStemMaggot ;
+    rdf:predicate agri:affectedBy ;
+    rdf:subject agri:CommonBean .
+
+agri:Claim_FieldMonitoring_FAO_CABI a agri:Claim ;
+    agri:claimDescription "Field monitoring and scouting are used to detect and assess Fall Armyworm infestations." ;
+    agri:evidenceDescription "The handbook describes regular monitoring and field scouting to detect Fall Armyworm, including checking plants for egg batches, young caterpillars, feeding damage, and frass. It also discusses pheromone traps as a monitoring method." ;
+    agri:evidenceSection "How to monitor fall armyworm in the field, pp. 19–20" ;
+    agri:supportedBy agri:FAO_CABI_FieldHandbook ;
+    rdf:object agri:FieldMonitoring ;
+    rdf:predicate agri:managedBy ;
+    rdf:subject agri:FallArmyworm .
+
+agri:Claim_FieldMonitoring_MINAGRI a agri:Claim ;
+    agri:claimDescription "Field surveillance is used to identify and assess Fall Armyworm infestations in Rwanda." ;
+    agri:evidenceDescription "MINAGRI reports that Rwanda Agriculture and Animal Resources Development Board (RAB) technical staff conducted field surveillance to confirm pest identity and incidence and to advise farmers on appropriate control options." ;
+    agri:evidenceSection "Interventions for the control of FAW in Rwanda" ;
+    agri:supportedBy agri:MINAGRI_FallArmywormReport ;
+    rdf:object agri:FieldMonitoring ;
+    rdf:predicate agri:managedBy ;
+    rdf:subject agri:FallArmyworm .
+
+agri:Claim_FrassInWhorl_FAO_CABI a agri:Claim ;
+    agri:claimDescription "Fall Armyworm infestation can be identified by frass around the maize whorl and other plant parts." ;
+    agri:evidenceDescription "The handbook identifies sawdust-like frass as a sign of Fall Armyworm infestation. It describes frass in the maize funnel and on leaves, tassels, and cobs, including clumps associated with fresh feeding." ;
+    agri:evidenceSection "How to identify fall armyworm, pp. 4 and 16" ;
+    agri:supportedBy agri:FAO_CABI_FieldHandbook ;
+    rdf:object agri:FrassInWhorl ;
+    rdf:predicate agri:causesSymptom ;
+    rdf:subject agri:FallArmyworm .
+
+agri:Claim_IPM_MINAGRI a agri:Claim ;
+    agri:claimDescription "Integrated pest-management approaches are used to manage Fall Armyworm in Rwanda." ;
+    agri:evidenceDescription "MINAGRI describes Rwanda's response as involving integrated management methods. The article also reports that RAB staff advised on integrated pest-management options, including hand-picking and destruction of larvae." ;
+    agri:evidenceSection "Interventions for the control of FAW in Rwanda" ;
+    agri:supportedBy agri:MINAGRI_FallArmywormReport ;
+    rdf:object agri:IntegratedPestManagement ;
+    rdf:predicate agri:managedBy ;
+    rdf:subject agri:FallArmyworm .
+
+agri:Claim_LeafDamage_FAO_CABI a agri:Claim ;
+    agri:claimDescription "Fall Armyworm feeding causes visible damage to maize leaves." ;
+    agri:evidenceDescription "The field handbook describes leaf feeding by Fall Armyworm caterpillars and the visible feeding damage that develops as the larvae grow." ;
+    agri:evidenceSection "How to identify fall armyworm, pp. 14–16" ;
+    agri:supportedBy agri:FAO_CABI_FieldHandbook ;
+    rdf:object agri:LeafDamage ;
+    rdf:predicate agri:causesSymptom ;
+    rdf:subject agri:FallArmyworm .
+
+agri:Claim_LeafDamage_MINAGRI a agri:Claim ;
+    agri:claimDescription "Fall Armyworm feeding causes visible damage to maize leaves." ;
+    agri:evidenceDescription "MINAGRI describes Fall Armyworm larvae feeding on leaves and causing visible crop damage, compared in the article to damage caused by hailstorms." ;
+    agri:evidenceSection "Fall Armyworm feeding and crop damage (paragraph describing larval feeding)" ;
+    agri:supportedBy agri:MINAGRI_FallArmywormReport ;
+    rdf:object agri:LeafDamage ;
+    rdf:predicate agri:causesSymptom ;
+    rdf:subject agri:FallArmyworm .
+
+agri:Claim_MaizeAffectedByFallArmyworm_MINAGRI a agri:Claim ;
+    agri:claimDescription "Maize is affected by Fall Armyworm in Rwanda." ;
+    agri:evidenceDescription "MINAGRI reports that Fall Armyworm infestations affected maize plantations in Rwanda, with infestations identified across almost all of the country's 30 districts." ;
+    agri:evidenceSection "Reported crop impacts in Rwanda (opening paragraphs)" ;
+    agri:supportedBy agri:MINAGRI_FallArmywormReport ;
+    rdf:object agri:FallArmyworm ;
+    rdf:predicate agri:affectedBy ;
+    rdf:subject agri:Maize .
+
+agri:Claim_StemMining_WorldBank a agri:Claim ;
+    agri:claimDescription "Bean Stem Maggot larvae mine through plant tissue towards the base of the stem." ;
+    agri:evidenceDescription "The World Bank report explains that Bean Stem Maggot larvae emerge from eggs laid within young leaves and mine through the plant towards the base of the stem." ;
+    agri:evidenceSection "Pests and Disease, p. 84" ;
+    agri:supportedBy agri:WorldBank_RwandaAgriculturalRiskAssessment ;
+    rdf:object agri:StemMining ;
+    rdf:predicate agri:causesSymptom ;
+    rdf:subject agri:BeanStemMaggot .
+
+agri:Claim_UgandanCassavaBrownStreakVirus_TransmittedByWhitefly_MINAGRI_CassavaAnnualReport_2018_2019 a agri:Claim ;
+    agri:claimDescription "UgandanCassavaBrownStreakVirus is transmitted by whiteflies (Bemisia tabaci)." ;
+    agri:evidenceDescription "MINAGRI's annual report identifies Bemisia tabaci as the whitefly vector transmitting cassava brown streak viruses in Rwanda." ;
+    agri:evidenceSection "Cassava Sub Program" ;
+    agri:supportedBy agri:MINAGRI_CassavaAnnualReport_2018_2019 ;
+    rdf:object agri:Whitefly ;
+    rdf:predicate agri:transmittedBy ;
+    rdf:subject agri:UgandanCassavaBrownStreakVirus .
+
+agri:Claim_UgandanCassavaBrownStreakVirus_TransmittedByWhitefly_Rwanda_CBSD_Research_2018 a agri:Claim ;
+    agri:claimDescription "UgandanCassavaBrownStreakVirus is transmitted by whiteflies (Bemisia tabaci)." ;
+    agri:evidenceDescription "The study identifies Bemisia tabaci as an insect vector responsible for transmitting cassava brown streak viruses." ;
+    agri:evidenceSection "Introduction, discussion of virus transmission" ;
+    agri:supportedBy agri:Rwanda_CBSD_Research_2018 ;
+    rdf:object agri:Whitefly ;
+    rdf:predicate agri:transmittedBy ;
+    rdf:subject agri:UgandanCassavaBrownStreakVirus .
+
+agri:Claim_WindowPanes_FAO_CABI a agri:Claim ;
+    agri:claimDescription "Young Fall Armyworm caterpillars cause window-pane damage on leaves." ;
+    agri:evidenceDescription "The handbook explains that small caterpillars feed on leaf tissue and create clear, window-like patches on the leaves." ;
+    agri:evidenceSection "How to identify fall armyworm, p. 15" ;
+    agri:supportedBy agri:FAO_CABI_FieldHandbook ;
+    rdf:object agri:WindowPanes ;
+    rdf:predicate agri:causesSymptom ;
+    rdf:subject agri:FallArmyworm .
+
+agri:MINAGRI_CassavaVarietyDistribution_2016 a agri:Source ;
+    agri:accessDate "2026-11-14"^^xsd:date ;
+    agri:geographicScope "Southern Province, Rwanda" ;
+    agri:hasClaim agri:Claim_CBSDTolerantVarieties_MINAGRI ;
+    agri:publicationYear "2016"^^xsd:gYear ;
+    agri:publisher "Ministry of Agriculture and Animal Resources (MINAGRI), Rwanda" ;
+    agri:sourceLanguage "English" ;
+    agri:sourceTitle "Farmers and local officials commit to ensure fair distribution of new cassava varieties in Southern Province" ;
+    agri:sourceType "Government publication" ;
+    agri:sourceURL "https://www.minagri.gov.rw/updates/news-details/farmers-and-local-officials-commit-to-ensure-fair-distribution-of-new-cassava-varieties-in-southern-province"^^xsd:anyURI .
+
+agri:Maize a agri:Crop ;
+    rdfs:label "Maize" ;
+    agri:affectedBy agri:FallArmyworm ;
+    agri:description "A cereal crop widely cultivated in Rwanda." ;
+    agri:scientificName "Zea mays" .
+
+agri:RwandaJournal_BeanPests2024 a agri:Source ;
+    agri:accessDate "2026-11-14"^^xsd:date ;
+    agri:geographicScope "Rwanda" ;
+    agri:hasClaim agri:Claim_CommonBeanAffectedByBeanStemMaggot_RwandaJournal ;
+    agri:publicationYear "2024"^^xsd:gYear ;
+    agri:publisher "Rwanda Journal of Agricultural Sciences" ;
+    agri:sourceLanguage "English" ;
+    agri:sourceTitle "Effect of Imidacloprid Gaucho-Seed Coating on Mosaic Virus Transmission and the Dynamics of the Main Insect Pests of Common Bean (Phaseolus vulgaris L.) Cultivation in Rwanda" ;
+    agri:sourceType "Peer-reviewed journal article" ;
+    agri:sourceURL "https://www.ajol.info/index.php/rjeas/article/view/266782"^^xsd:anyURI .
+
+agri:CassavaLeafChlorosis a agri:Symptom ;
+    rdfs:label "Cassava Leaf Chlorosis" ;
+    agri:description "Yellowing, chlorotic spots, blotches, and interveinal chlorosis on cassava leaves associated with CBSD." .
+
+agri:CassavaRootConstrictions a agri:Symptom ;
+    rdfs:label "Cassava Root Constrictions" ;
+    agri:description "Narrowed or constricted areas of cassava storage roots associated with CBSD." .
+
+agri:CassavaRootDiscolouration a agri:Symptom ;
+    rdfs:label "Cassava Root Discolouration" ;
+    agri:description "Brown, black, yellow, or chalky discoloration of cassava storage-root tissue associated with CBSD." .
+
+agri:CassavaRootNecrosis a agri:Symptom ;
+    rdfs:label "Cassava Root Necrosis" ;
+    agri:description "Necrotic damage within cassava storage roots associated with CBSD." .
+
+agri:CassavaStemLesions a agri:Symptom ;
+    rdfs:label "Cassava Stem Lesions" ;
+    agri:description "Brown lesions, spots, or streaks on cassava stems associated with CBSD." .
+
+agri:Claim_CBSDTolerantVarieties_MINAGRI a agri:Claim ;
+    agri:claimDescription "CBSD-tolerant cassava varieties have been distributed to farmers in Rwanda.",
+        "Tolerant cassava varieties are used as part of the management of cassava brown streak disease in Rwanda." ;
+    agri:evidenceDescription "MINAGRI identifies the development and use of resistant or tolerant cassava varieties as a management approach for cassava virus diseases, including CBSD.",
+        "MINAGRI reports that new cassava varieties tolerant to CBSD were multiplied and distributed in Rwanda's Southern Province, alongside efforts to provide farmers with clean planting material." ;
+    agri:evidenceSection "Cassava Sub Program",
+        "Distribution of new cassava varieties in Southern Province" ;
+    agri:supportedBy agri:MINAGRI_CassavaAnnualReport_2018_2019,
+        agri:MINAGRI_CassavaVarietyDistribution_2016 ;
+    rdf:object agri:TolerantVarieties ;
+    rdf:predicate agri:managedBy ;
+    rdf:subject agri:CassavaBrownStreakDisease .
+
+agri:CommonBean a agri:Crop ;
+    rdfs:label "Common Bean" ;
+    agri:affectedBy agri:BeanStemMaggot ;
+    agri:description "A legume crop cultivated widely in Rwanda." ;
+    agri:scientificName "Phaseolus vulgaris" .
+
+agri:FrassInWhorl a agri:Symptom ;
+    rdfs:label "Frass in maize whorl" ;
+    agri:description "Sawdust-like insect droppings found in the maize funnel or whorl and on other plant parts." .
+
+agri:RemovalOfInfectedPlants a agri:ManagementPractice ;
+    rdfs:label "Removal of Infected Plants" ;
+    agri:description "Identification and removal of infected plants to reduce sources of disease in the field." .
+
+agri:ResistantVarieties a agri:ManagementPractice ;
+    rdfs:label "Resistant Varieties" ;
+    agri:description "Use of crop varieties with resistance or improved tolerance to particular pests." .
+
+agri:StemMining a agri:Symptom ;
+    rdfs:label "Stem Mining" ;
+    agri:description "Damage caused by bean stem maggot larvae mining through plant tissue towards the base of the stem." .
+
+agri:WindowPanes a agri:Symptom ;
+    rdfs:label "Window-pane damage" ;
+    agri:description "Clear or translucent patches on leaves caused by young fall armyworm caterpillars feeding on leaf tissue." .
+
+agri:CleanPlantingMaterial a agri:ManagementPractice ;
+    rdfs:label "Clean Planting Material" ;
+    agri:description "Use of healthy, disease-free planting material obtained from reliable sources to reduce the spread of plant pathogens." .
+
+agri:FAO_CassavaFarmerFieldSchools a agri:Source ;
+    agri:accessDate "2026-11-14"^^xsd:date ;
+    agri:geographicScope "Sub-Saharan Africa" ;
+    agri:hasClaim agri:Claim_CBSDCleanPlantingMaterial_FAO,
+        agri:Claim_CBSDRemovalOfInfectedPlants_FAO,
+        agri:Claim_CBSDTolerantVarieties_FAO ;
+    agri:publicationYear "2013"^^xsd:gYear ;
+    agri:publisher "Food and Agriculture Organization of the United Nations" ;
+    agri:sourceLanguage "English" ;
+    agri:sourceTitle "Cassava Farmer Field Schools: Resource material for facilitators in sub-Saharan Africa" ;
+    agri:sourceType "Agricultural training and extension guide" ;
+    agri:sourceURL "https://www.fao.org/4/i3447e/i3447e.pdf"^^xsd:anyURI .
+
+agri:FieldMonitoring a agri:ManagementPractice ;
+    rdfs:label "Field Monitoring" ;
+    agri:description "Regular field surveillance and scouting to detect pests, assess infestation, and inform management decisions." .
+
+agri:LeafDamage a agri:Symptom ;
+    rdfs:label "Leaf Damage" ;
+    agri:description "Visible damage to crop leaves caused by insect feeding." .
+
+agri:TolerantVarieties a agri:ManagementPractice ;
+    rdfs:label "Tolerant Varieties" ;
+    agri:description "Use of crop varieties that can tolerate infection or reduce disease damage." .
+
+agri:FAO_CABI_FieldHandbook a agri:Source ;
+    agri:accessDate "2026-11-13"^^xsd:date ;
+    agri:geographicScope "Africa" ;
+    agri:hasClaim agri:Claim_FieldMonitoring_FAO_CABI,
+        agri:Claim_FrassInWhorl_FAO_CABI,
+        agri:Claim_LeafDamage_FAO_CABI,
+        agri:Claim_WindowPanes_FAO_CABI ;
+    agri:publicationYear "2019"^^xsd:gYear ;
+    agri:publisher "Food and Agriculture Organization (FAO) and CABI" ;
+    agri:sourceLanguage "English" ;
+    agri:sourceTitle "Fall Armyworm Field Handbook: Identification and Management" ;
+    agri:sourceType "Agricultural field handbook" ;
+    agri:sourceURL "https://site.cabi.org/wp-content/uploads/FAW-pocket-guide.pdf"^^xsd:anyURI .
+
+agri:IntegratedPestManagement a agri:ManagementPractice ;
+    rdfs:label "Integrated Pest Management" ;
+    agri:description "An approach combining appropriate pest-management methods rather than relying on a single control measure." .
+
+agri:MINAGRI_FallArmywormReport a agri:Source ;
+    agri:accessDate "2026-11-13"^^xsd:date ;
+    agri:geographicScope "Rwanda" ;
+    agri:hasClaim agri:Claim_FieldMonitoring_MINAGRI,
+        agri:Claim_IPM_MINAGRI,
+        agri:Claim_LeafDamage_MINAGRI,
+        agri:Claim_MaizeAffectedByFallArmyworm_MINAGRI ;
+    agri:publisher "Ministry of Agriculture and Animal Resources (MINAGRI), Rwanda" ;
+    agri:sourceLanguage "English" ;
+    agri:sourceTitle "Government intensifies efforts to contain Fall Armyworms" ;
+    agri:sourceType "Government publication" ;
+    agri:sourceURL "https://www.minagri.gov.rw/updates/news-details/government-intensifies-efforts-to-contain-fall-armyworms"^^xsd:anyURI .
+
+agri:WorldBank_RwandaAgriculturalRiskAssessment a agri:Source ;
+    agri:accessDate "2026-11-14"^^xsd:date ;
+    agri:geographicScope "Rwanda" ;
+    agri:hasClaim agri:Claim_BeanStemMaggot_IPM_WorldBank,
+        agri:Claim_BeanStemMaggot_ResistantVarieties_WorldBank,
+        agri:Claim_CommonBeanAffectedByBeanStemMaggot_WorldBank,
+        agri:Claim_StemMining_WorldBank ;
+    agri:publicationYear "2015"^^xsd:gYear ;
+    agri:publisher "World Bank Group" ;
+    agri:sourceLanguage "English" ;
+    agri:sourceTitle "Rwanda Agricultural Sector Risk Assessment" ;
+    agri:sourceType "Agricultural sector risk assessment report" ;
+    agri:sourceURL "https://documents1.worldbank.org/curated/en/525111468180254519/pdf/96290-WP-P148140-Box393232B-PUBLIC-TAP-Rwanda-ASRA-WEB-10062015.pdf"^^xsd:anyURI .
+
+agri:CassavaBrownStreakVirus a agri:Pathogen ;
+    rdfs:label "Cassava Brown Streak Virus" ;
+    agri:description "An ipomovirus associated with cassava brown streak disease." ;
+    agri:scientificName "Cassava brown streak virus (CBSV)" ;
+    agri:transmittedBy agri:Whitefly .
+
+agri:UgandanCassavaBrownStreakVirus a agri:Pathogen ;
+    rdfs:label "Ugandan Cassava Brown Streak Virus" ;
+    agri:description "An ipomovirus associated with cassava brown streak disease and reported as widespread in Rwanda." ;
+    agri:scientificName "Ugandan cassava brown streak virus (UCBSV)" ;
+    agri:transmittedBy agri:Whitefly .
+
+agri:BeanStemMaggot a agri:Pest ;
+    rdfs:label "Bean Stem Maggot" ;
+    agri:causesSymptom agri:StemMining ;
+    agri:description "A pest of common beans whose larvae mine through plant tissue towards the base of the stem." ;
+    agri:managedBy agri:IntegratedPestManagement,
+        agri:ResistantVarieties ;
+    agri:scientificName "Ophiomyia spp." .
+
+agri:MINAGRI_CassavaAnnualReport_2018_2019 a agri:Source ;
+    agri:accessDate "2026-11-14"^^xsd:date ;
+    agri:geographicScope "Rwanda" ;
+    agri:hasClaim agri:Claim_CBSDCausedByCBSV_MINAGRI,
+        agri:Claim_CBSDCausedByUCBSV_MINAGRI,
+        agri:Claim_CBSDSpreadByInfectedCuttings_MINAGRI,
+        agri:Claim_CBSDTolerantVarieties_MINAGRI,
+        agri:Claim_CassavaBrownStreakVirus_TransmittedByWhitefly_MINAGRI_CassavaAnnualReport_2018_2019,
+        agri:Claim_UgandanCassavaBrownStreakVirus_TransmittedByWhitefly_MINAGRI_CassavaAnnualReport_2018_2019 ;
+    agri:publicationYear "2019"^^xsd:gYear ;
+    agri:publisher "Ministry of Agriculture and Animal Resources (MINAGRI), Rwanda" ;
+    agri:sourceLanguage "English" ;
+    agri:sourceTitle "MINAGRI Annual Report 2018–2019" ;
+    agri:sourceType "Government annual report" ;
+    agri:sourceURL "https://www.minagri.gov.rw/fileadmin/user_upload/Minagri/Publications/Annual_Reports/Minagri_Annual_Report_2018-19.pdf"^^xsd:anyURI .
+
+agri:Whitefly a agri:Vector ;
+    rdfs:label "Whitefly" ;
+    agri:description "An insect vector that transmits cassava brown streak viruses between cassava plants." ;
+    agri:scientificName "Bemisia tabaci" .
+
+agri:FallArmyworm a agri:Pest ;
+    rdfs:label "Fall Armyworm" ;
+    agri:causesSymptom agri:FrassInWhorl,
+        agri:LeafDamage,
+        agri:WindowPanes ;
+    agri:description "An insect pest whose larvae feed on maize leaves and can cause substantial crop damage." ;
+    agri:managedBy agri:FieldMonitoring,
+        agri:IntegratedPestManagement ;
+    agri:scientificName "Spodoptera frugiperda" .
+
+agri:Rwanda_CBSD_Research_2018 a agri:Source ;
+    agri:accessDate "2026-11-14"^^xsd:date ;
+    agri:geographicScope "Rwanda" ;
+    agri:hasClaim agri:Claim_CBSDCausedByCBSV_Research,
+        agri:Claim_CBSDCausedByUCBSV_Research,
+        agri:Claim_CBSDLeafChlorosis_Research,
+        agri:Claim_CBSDRootConstrictions_Research,
+        agri:Claim_CBSDRootDiscolouration_Research,
+        agri:Claim_CBSDRootNecrosis_Research,
+        agri:Claim_CBSDStemLesions_Research,
+        agri:Claim_CassavaBrownStreakVirus_TransmittedByWhitefly_Rwanda_CBSD_Research_2018,
+        agri:Claim_CassavaHasCBSD_Research,
+        agri:Claim_UgandanCassavaBrownStreakVirus_TransmittedByWhitefly_Rwanda_CBSD_Research_2018 ;
+    agri:publicationYear "2018"^^xsd:gYear ;
+    agri:publisher "Plant Pathology" ;
+    agri:sourceLanguage "English" ;
+    agri:sourceTitle "Cassava brown streak disease in Rwanda, the associated viruses and disease phenotypes" ;
+    agri:sourceType "Peer-reviewed research article" ;
+    agri:sourceURL "https://pmc.ncbi.nlm.nih.gov/articles/PMC5832305/"^^xsd:anyURI .
+
+agri:CassavaBrownStreakDisease a agri:Disease ;
+    rdfs:label "Cassava Brown Streak Disease" ;
+    agri:causedBy agri:CassavaBrownStreakVirus,
+        agri:UgandanCassavaBrownStreakVirus ;
+    agri:causesSymptom agri:CassavaLeafChlorosis,
+        agri:CassavaRootConstrictions,
+        agri:CassavaRootDiscolouration,
+        agri:CassavaRootNecrosis,
+        agri:CassavaStemLesions ;
+    agri:description "A viral disease of cassava associated with leaf chlorosis, stem lesions, and necrotic damage in storage roots." ;
+    agri:managedBy agri:CleanPlantingMaterial,
+        agri:RemovalOfInfectedPlants,
+        agri:TolerantVarieties .
+

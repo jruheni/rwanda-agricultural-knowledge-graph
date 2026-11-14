@@ -1,0 +1,85 @@
+
+@prefix agri: <http://example.org/agriculture#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ---------------------------------------------------------
+# CLAIM SHAPE
+# ---------------------------------------------------------
+
+agri:ClaimShape
+    a sh:NodeShape ;
+    sh:targetClass agri:Claim ;
+
+    # Every claim must describe one RDF statement.
+    sh:property [
+        sh:path rdf:subject ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "Every claim must have exactly one subject."
+    ] ;
+
+    sh:property [
+        sh:path rdf:predicate ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "Every claim must have exactly one predicate."
+    ] ;
+
+    sh:property [
+        sh:path rdf:object ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "Every claim must have exactly one object."
+    ] ;
+
+    # Every claim must have a description.
+    sh:property [
+        sh:path agri:claimDescription ;
+        sh:minCount 1 ;
+        sh:message "Every claim must have a description."
+    ] ;
+
+    # Every claim must contain source-specific evidence.
+    sh:property [
+        sh:path agri:evidenceDescription ;
+        sh:minCount 1 ;
+        sh:message "Every claim must describe its supporting evidence."
+    ] ;
+
+    # Every claim must reference at least one source.
+    sh:property [
+        sh:path agri:supportedBy ;
+        sh:minCount 1 ;
+        sh:class agri:Source ;
+        sh:message "Every claim must reference an existing source."
+    ] .
+
+
+# ---------------------------------------------------------
+# SOURCE SHAPE
+# ---------------------------------------------------------
+
+agri:SourceShape
+    a sh:NodeShape ;
+    sh:targetClass agri:Source ;
+
+    sh:property [
+        sh:path agri:sourceTitle ;
+        sh:minCount 1 ;
+        sh:message "Every source must have a title."
+    ] ;
+
+    sh:property [
+        sh:path agri:publisher ;
+        sh:minCount 1 ;
+        sh:message "Every source must identify its publisher."
+    ] ;
+
+    sh:property [
+        sh:path agri:sourceURL ;
+        sh:minCount 1 ;
+        sh:datatype xsd:anyURI ;
+        sh:message "Every source must have a validly typed URL."
+    ] .
